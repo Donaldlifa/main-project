@@ -461,7 +461,7 @@
     
     <!-- Success Modal -->
     <div class="modal-overlay" id="success-modal-overlay">
-        <div class="success-modal"><div class="success-modal">
+        <div class="success-modal">
             <div class="success-icon">✓</div>
             <h2 class="success-title">Payment Successful!</h2>
             <p class="success-message">Your order has been processed successfully. Order confirmation has been sent to your email.</p>
@@ -472,7 +472,7 @@
     
     <script>
         // Load cart items from localStorage
-function loadCartItems() {
+ function loadCartItems() {
     const container = document.getElementById('summary-items');
     if (!container) return;
     
@@ -518,10 +518,10 @@ function loadCartItems() {
     });
     
     updateSummary(subtotal);
-}
+ }
 
-// Update summary totals
-function updateSummary(subtotal) {
+ // Update summary totals
+ function updateSummary(subtotal) {
     document.getElementById('subtotal').textContent = `R${subtotal.toFixed(2)}`;
     
     const shipping = subtotal > 0 ? 5.00 : 0.00;
@@ -533,8 +533,8 @@ function updateSummary(subtotal) {
     document.getElementById('total').textContent = `R${total.toFixed(2)}`;
 }
 
-// Select payment method
-function selectPaymentMethod(element, method) {
+ // Select payment method
+ function selectPaymentMethod(element, method) {
     // Remove active class from all methods
     document.querySelectorAll('.payment-method').forEach(item => {
         item.classList.remove('active');
@@ -553,17 +553,17 @@ function selectPaymentMethod(element, method) {
     if (paymentElement) {
         paymentElement.style.display = 'block';
     }
-}
+ }
 
-// Generate random order number
-function generateOrderNumber() {
+ // Generate random order number
+ function generateOrderNumber() {
     const prefix = "ORD-";
     const randomNum = Math.floor(10000000 + Math.random() * 90000000);
     return prefix + randomNum;
-}
+ }
 
-// Form submission
-function setupFormSubmission() {
+ // Form submission
+ function setupFormSubmission() {
     const form = document.getElementById('payment-form');
     if (!form) return;
     
@@ -603,27 +603,27 @@ function setupFormSubmission() {
         // Clear cart after successful checkout
         localStorage.removeItem('shoppingCart');
     });
-}
+ }
 
-// Close modal and return to shop
-function closeModal() {
+ // Close modal and return to shop
+ function closeModal() {
     const modal = document.getElementById('success-modal-overlay');
     if (modal) {
         modal.style.display = 'none';
     }
     window.location.href = "shop.html";
-}
+ }
 
-// Return to shop
-function returnToShop() {
+ // Return to shop
+ function returnToShop() {
     window.location.href = "shop.html";
-}
+ }
 
-// Initialize
-window.onload = function() {
+ // Initialize
+ window.onload = function() {
     loadCartItems();
     setupFormSubmission();
-};
+ };
     </script>
 </body>
 </html>
